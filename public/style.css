@@ -1,0 +1,199 @@
+@font-face {
+    font-family: NanumSquare;
+    src: url(.font/NanumSquareR.ttf) format('ttf');
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'NanumSquare';
+}
+
+body{
+  background-color: #000000;
+  background-repeat: no-repeat;
+}
+
+/*-------------------------travel.html상단메뉴바---------*/
+.top_box {
+  background-color: black;
+  opacity: 0.3;
+  position: fixed;
+  top: 0px;
+  padding: 40px 100%;
+}
+
+.logo{
+  position: fixed;
+  left: 20px;
+  top: 10px;
+  z-index: 1;
+}
+
+.menu{
+  padding-top: 0.1px;
+  font-size:25px;
+  font-weight:bold;
+}
+
+.menu li{
+  display:inline;
+  color: #FFFFFF;
+}
+
+#left{
+
+  position: fixed;
+  left: 250px;
+  top: 10px;
+}
+
+#right{
+  position: fixed;
+  top: 10px;
+  right: 20px;
+}
+
+.menu li a{
+  text-decoration:none;
+  line-height:80px;
+  color:#cccccc;
+  padding:25px;
+  margin:0px;
+  font-weight:none;
+}
+
+.menu li a:hover{
+color:#FFFFFF;
+text-decoration:none;
+}
+
+/*--------------------travel.html주저리주저리-------*/
+.title {
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 300px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1.5s;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+/*----------login+join.html----------*/
+
+
+
+.login-page {
+  width: 360px;
+  padding: 400px 0 0;
+  margin: auto;
+  animation: fadeInUp 1s;
+
+}
+
+.form {
+  position: relative;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+
+.message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 20px;
+  text-align: center;
+}
+.message a {
+  color: #CEA73D;
+}
+
+.login{
+  color: white;
+  position: fixed;
+  top:18%;
+  left: 44.3%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+}
+
+
+
+/*-----join---------*/
+
+
+.join{
+  color: white;
+  position: fixed;
+  top:18%;
+  left: 42.5%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+}
+
+
+
+input[type="submit"] {
+  font-size: .9em;
+  color: #fff;
+  background: #F2CB61;
+  outline: none;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 2em 0;
+  letter-spacing: 4px;
+}
+
+input[type="submit"]:hover {
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background: #CEA73D;
+}
+
+.join_page{
+  width: 360px;
+  padding:290px 0 0;
+  margin: auto;
+  animation: fadeInUp 1s;
+
+}

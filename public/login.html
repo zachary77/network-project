@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TraveL</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <style media="screen">
+    body{
+      background-color: #FFFFFF;
+      background-image: url('shi.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+
+  <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+  <a class="logo" href="travel.html"><img src="travel__.png" width="200px"></a>
+
+
+  <div class="top_box"><br></div>
+<div class="login">
+  로그인
+</div>
+  <div class="menu_1">
+    <div class="menu">
+      <ul id="left">
+        <li><a href="intro.html">홈페이지소개</a> |</li>
+        <li><a href="price.html" >여행경비세우기</a> |</li>
+        <li><a href="share.html">여행공유게시판</a> |</li>
+        <li><a href="mypage.html">마이페이지</a></li>
+
+      </ul>
+      <ul id="right">
+        <li ><a href="login.html">로그인</a> |</li>
+        <li ><a href="join.html">회원가입</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="login-page" >
+    <div class="form">
+      <form class="login-form" method="post" action="http://localhost:8080/login">
+        <input type="text" name="id" placeholder="id"/>
+        <input type="password" name="pw" placeholder="password"/>
+        <input type="submit" value="LOGIN">
+        <p class="message">아직 회원이 아닌가요?<br><a href="join.html">회원가입하러가기</a></p>
+      </form>
+    </div>
+  </div>
+
+  </body>
+</html>
