@@ -23,19 +23,23 @@ body{
   position: fixed;
   top: 0px;
   padding: 40px 100%;
+  z-index: 28;
 }
 
 .logo{
   position: fixed;
   left: 20px;
   top: 10px;
-  z-index: 1;
+  z-index: 30;
 }
 
 .menu{
+  position: absolute;
   padding-top: 0.1px;
   font-size:25px;
   font-weight:bold;
+
+  z-index: 29;
 }
 
 .menu li{
@@ -117,7 +121,7 @@ text-decoration:none;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-input {
+.form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -168,7 +172,7 @@ input {
 
 
 
-input[type="submit"] {
+.form input[type="submit"] {
   font-size: .9em;
   color: #fff;
   background: #F2CB61;
@@ -181,7 +185,7 @@ input[type="submit"] {
   letter-spacing: 4px;
 }
 
-input[type="submit"]:hover {
+.form input[type="submit"]:hover {
   -webkit-transition: .5s all;
   -moz-transition: .5s all;
   -o-transition: .5s all;
@@ -196,4 +200,134 @@ input[type="submit"]:hover {
   margin: auto;
   animation: fadeInUp 1s;
 
+}
+
+/*-------홈페이지 소개---------*/
+
+.intro{
+  color: white;
+  position: fixed;
+  top:18%;
+  left: 39%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+  z-index: 2;
+}
+
+.ex {
+  background-color: #F6F6F6;
+  padding-left: 536.5px;
+  padding-right: 536.5px;
+  padding-top: 222px;
+  font-weight: bold;
+
+  text-shadow: 1px 1px 3px #353535;
+}
+
+.image li, .name li{
+  list-style-type: none;
+  display: inline;
+}
+
+.introduc a{
+  color:#000000;
+}
+.ex img{
+  background-color: #FFA873;
+  width: 250px;
+  padding: 50px 20px 50px 20px;
+  margin: 10px;
+  border-radius: 13px;
+}
+
+.ex img:hover{
+  background-color: #DC6441;
+}
+
+.introduc{
+  font-size: 30px;
+  position: absolute;
+  z-index: 3;
+  margin-top: 25%;
+  padding-bottom: 5%;
+}
+
+.name_{
+  margin-left: 80px;
+}
+.name__{
+  margin-left: 160px;
+}
+.name___{
+  margin-left: 160px;
+}
+
+/*---------------여행일정보기--------------*/
+.calender{
+  color: white;
+  position: fixed;
+  top:18%;
+  left: 43%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+  z-index: 2;
+}
+
+/*------여행경비세우기----------*/
+
+.price_form{
+  font-size: 20px;
+  background-color: #FFFFFF;
+  padding: 50px;
+  padding-top: 15%;
+  padding-left: 25%;
+  margin-top: 25%;
+}
+
+.price_table tr td input{
+  font-size: 20px;
+  border: none;
+  width: 100%;
+}
+
+.tb_title{
+  font-size: 40px;
+  text-align: center;
+}
+
+td{
+  padding: 5px;
+}
+
+.tb_sub{
+  text-align: center;
+}
+
+.right input{
+  text-align: right;
+}
+
+/*---------------공유게시판------------*/
+
+.develop{
+  padding-left: 31.4%;
+  padding-right: 31.3%;
+  margin-top: 23%;
+  padding-top: 3%;
+  background-color: #FFFFFF;
+  position: absolute;
+  z-index: 3;
+}
+
+.share{
+  color: white;
+  position: fixed;
+  top:18%;
+  left: 39%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+  z-index: 2;
 }

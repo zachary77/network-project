@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TraveL</title>
+    <link rel="short icon" href="./img/travel_icon.ico">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <style media="screen">
+    body{
+      background-color: #F6F6F6;
+      background-image: url('./img/shi.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <script src="main.js"></script>
+
+  <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" >
+  <a class="logo" href="http://localhost:8080"><img src="./img/travel__.png" width="200px"></a>
+
+
+<div class="top_box"><br></div>
+<div class="intro">
+  홈페이지소개
+</div>
+  <div class="menu_1">
+    <div class="menu">
+      <ul id="left">
+        <li><a href="/intro">홈페이지소개</a> |</li>
+        <li><a href="price.html" >여행경비세우기</a> |</li>
+        <li><a href="share.html" >여행공유게시판</a> |</li>
+        <li><a href="mypage.html">마이페이지</a></li>
+      </ul>
+      <%
+        if (session.islogin != 'login'){ 
+      %>
+      <ul id="right">
+        <li ><a href="/login">로그인</a> |</li>
+        <li ><a href="/join">회원가입</a></li>
+      </ul>
+      <% } %>
+      <% if(session.islogin == 'login'){ %>
+        <ul id="right">
+          <li><%= cookie.user %>님 안녕하세요.<span style="padding-left:25px;">|</span></li>
+          <li><a href="/logout">로그아웃</a></li>
+        </ul>
+      <%   }%>
+    </div>
+  </div>
+
+  <div class="introduc">
+    <div class="ex">TraveL은 편리한 여행계획을 위해 서비스를 제공하는 사이트입니다.<br><br><br><br><br><br>
+      <ul class="image">
+        <li><a href="calender.html"><img src="./img/일정.png"></a></li>
+        <li><a href="price.html"><img src="./img/여행경비.png"></a></li>
+        <li><a href="share.html"><img src="./img/공유.png"></a></li>
+      </ul>
+
+      <ul class="name">
+        <li class="name_"><a href="calender.html">여행일정</a></li>
+        <li class="name__"><a href="price.html">여행경비</a></li>
+        <li class="name___"><a href="share.html">여행공유</a></li>
+      </ul>
+      <br>
+    </div>
+  </div>
+  </body>
+</html>
