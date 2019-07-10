@@ -8,28 +8,25 @@
   </head>
   <style media="screen">
     body{
-      background-color: #F6F6F6;
+      background-color: #FFFFFF;
       background-image: url('./img/shi.jpg');
       background-repeat: no-repeat;
       background-size: cover;
     }
   </style>
-  <script src="main.js"></script>
 
-  <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" >
+  <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
   <a class="logo" href="/travel"><img src="./img/travel__.png" width="200px"></a>
 
 
-<div class="top_box"><br></div>
-<div class="intro">
-  홈페이지소개
-</div>
+  <div class="top_box"><br></div>
   <div class="menu_1">
     <div class="menu">
       <ul id="left">
         <li><a href="/intro">홈페이지소개</a> |</li>
         <li><a href="/price" >여행경비세우기</a> |</li>
         <li><a href="/mypage">마이페이지</a></li>
+
       </ul>
       <%
         if (session.islogin != 'login'){ 
@@ -48,21 +45,24 @@
     </div>
   </div>
 
-  <div class="introduc">
-    <div class="ex">TraveL은 편리한 여행계획을 위해 서비스를 제공하는 사이트입니다.<br><br><br><br><br><br>
-      <ul class="image">
-        <li><a href="/place"><img src="./img/일정.png"></a></li>
-        <li><a href="/price"><img src="./img/여행경비.png"></a></li>
-        <li><a href="/share"><img src="./img/공유.png"></a></li>
-      </ul>
-
-      <ul class="name">
-        <li class="name_"><a href="/calender">여행일정</a></li>
-        <li class="name__"><a href="/price">여행경비</a></li>
-        <li class="name___"><a href="/share">여행공유</a></li>
-      </ul>
-      <br>
-    </div>
+  <div class="_info" >
+        <div class="info">
+                <form action="/info" method="post" class="form_sec">
+                    <img src="./img/traveler.png" alt="" style="width: 150px; height: 150px; opacity: 0.7;">
+                    <p class="message"><br></p>
+                
+                    <input class="text" type="text" name="username" placeholder="Username" required="">
+                    <p>
+                      <%=
+                      cookie.id
+                      %>
+                    </p>
+                    <input class="text" type="password" name="pw" placeholder="Password" required="">
+                    <input class="text w3lpass" type="password" name="check" placeholder="Confirm Password" required="">
+                    <input type="submit" value="수정하기" onclick="call_alert(1)">
+                </form>
+            </div>
   </div>
+
   </body>
 </html>

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>TraveL</title>
     <link rel="short icon" href="./img/travel_icon.ico">
     <link rel="stylesheet" href="./style.css">
-    <script src="main.js">
-
-    </script>
   </head>
   <style media="screen">
     body{
@@ -19,7 +16,7 @@
   </style>
 
   <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-  <a class="logo" href="travel.html"><img src="./img/travel__.png" width="200px"></a>
+  <a class="logo" href="/travel"><img src="./img/travel__.png" width="200px"></a>
 
 
   <div class="top_box"><br></div>
@@ -29,20 +26,29 @@
   <div class="menu_1">
     <div class="menu">
       <ul id="left">
-        <li><a href="intro.html">홈페이지소개</a> |</li>
-        <li><a href="price.html" >여행경비세우기</a> |</li>
-        <li><a href="share.html" >여행공유게시판</a> |</li>
-        <li><a href="mypage.html">마이페이지</a></li>
+        <li><a href="/intro">홈페이지소개</a> |</li>
+        <li><a href="/price" >여행경비세우기</a> |</li>
+        <li><a href="/mypage">마이페이지</a></li>
       </ul>
 
+      <%
+        if (session.islogin != 'login'){ 
+      %>
       <ul id="right">
-        <li ><a href="login.html">로그인</a> |</li>
-        <li ><a href="join.html">회원가입</a></li>
+        <li ><a href="/login">로그인</a> |</li>
+        <li ><a href="/join">회원가입</a></li>
       </ul>
+      <% } %>
+      <% if(session.islogin == 'login'){ %>
+        <ul id="right">
+          <li><%= cookie.user %>님 안녕하세요.<span style="padding-left:25px;">|</span></li>
+          <li><a href="/logout">로그아웃</a></li>
+        </ul>
+      <%   }%>
     </div>
   </div>
 
-  <form name="sumform" class="price_form">
+  <form name="sumform" class="price_form" action="/price" method="POST">
       <table cellspacing=0 border=1 class="price_table">
               <tr class="tb_title">
                   <td style=min-width:50px colspan="4">여행예상경비</td>
@@ -55,65 +61,69 @@
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell1' id='sell1' onkeyup='call(1)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell1' id='sell1'></td>
                   <td class="right" style=min-width:50px><input type="text" ></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell2' id='sell2' onkeyup='call(2)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell2' id='sell2'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell3' id='sell3' onkeyup='call(3)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell3' id='sell3'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell4' id='sell4' onkeyup='call(4)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell4' id='sell4'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell5' id='sell5' onkeyup='call(5)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell5' id='sell5'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell6' id='sell6' onkeyup='call(6)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell6' id='sell6'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell7' id='sell7' onkeyup='call(7)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell7' id='sell7'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell8' id='sell8' onkeyup='call(8)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell8' id='sell8'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="right" style=min-width:50px><input type="text"></td>
-                  <td class="right" style=min-width:50px><input type='text' name='sell9' id='sell9' onkeyup='call(9)'></td>
+                  <td class="right" style=min-width:50px><input type='text' name='sell9' id='sell9'></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
                   <td class="right" style=min-width:50px><input type="text"></td>
               </tr>
               <tr>
                   <td class="tb_sub" style=min-width:50px> 총 예상 경비 </td>
-                  <td class="right" style=min-width:50px colspan="3"><input type='text' name='sum' id='sum' ></td>
+                  <td class="right" style=min-width:50px colspan="3">
+                    <%=
+                      sum
+                    %>
+                  </td>
               </tr>
           </table>
+          <input class="button_pr" type="submit" value="계산하기">
         </form>
-        <input class="button_pr" type="submit" value="저장하기">
 
   </body>
 </html>

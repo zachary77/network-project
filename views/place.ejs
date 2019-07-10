@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TraveL</title>
+    <link rel="short icon" href="./img/travel_icon.ico">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <style media="screen">
+    body{
+      background-color: #FFFFFF;
+      background-image: url('./img/shi.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+
+  <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+  <a class="logo" href="/travel"><img src="./img/travel__.png" width="200px"></a>
+
+
+  <div class="top_box"><br></div>
+  <div class="place">
+    여행지 추천
+  </div>
+  <div class="menu_1">
+    <div class="menu">
+      <ul id="left">
+        <li><a href="/intro">홈페이지소개</a> |</li>
+        <li><a href="/price" >여행경비세우기</a> |</li>
+        <li><a href="/mypage">마이페이지</a></li>
+
+      </ul>
+      <%
+        if (session.islogin != 'login'){ 
+      %>
+      <ul id="right">
+        <li ><a href="/login">로그인</a> |</li>
+        <li ><a href="/join">회원가입</a></li>
+      </ul>
+      <% } %>
+      <% if(session.islogin == 'login'){ %>
+        <ul id="right">
+          <li><%= cookie.user %>님 안녕하세요.<span style="padding-left:25px;">|</span></li>
+          <li><a href="/logout">로그아웃</a></li>
+        </ul>
+      <%   }%>
+    </div>
+  </div>
+
+  <div class="city">
+      <a><img class="city_img" src="./img/city/boracay.jpg" onmouseover="this.src='./img/city/boracay_1.jpg'" onmouseout="this.src='./img/city/boracay.jpg'"></a>
+      <a><img class="city_img" src="./img/city/gwam.jpg" onmouseover="this.src='./img/city/gwam_1.jpg'" onmouseout="this.src='./img/city/gwam.jpg'"></a>
+      <a ><img class="city_img" src="./img/city/hawai.jpg" onmouseover="this.src='./img/city/hawai_1.jpg'" onmouseout="this.src='./img/city/hawai.jpg'"></a><br>
+      <a ><img class="city_img" src="./img/city/hoian.jpg" onmouseover="this.src='./img/city/hoian_1.jpg'" onmouseout="this.src='./img/city/hoian.jpg'"></a>
+      <a><img class="city_img" src="./img/city/jeju.jpg" onmouseover="this.src='./img/city/jeju_1.jpg'" onmouseout="this.src='./img/city/jeju.jpg'"></a>
+      <a><img class="city_img" src="./img/city/london.jpg" onmouseover="this.src='./img/city/london_1.jpg'" onmouseout="this.src='./img/city/london.jpg'"></a><br>
+      <a><img class="city_img" src="./img/city/one-building.jpg" onmouseover="this.src='./img/city/one-building_1.jpg'" onmouseout="this.src='./img/city/one-building.jpg'"></a>
+      <a><img class="city_img" src="./img/city/osaka.jpg" onmouseover="this.src='./img/city/osaka_1.jpg'" onmouseout="this.src='./img/city/osaka.jpg'"></a>
+      <a><img class="city_img" src="./img/city/thailand.jpg" onmouseover="this.src='./img/city/thailand_1.jpg'" onmouseout="this.src='./img/city/thailand.jpg'"></a>
+  </div>
+
+  </body>
+</html>

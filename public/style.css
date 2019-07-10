@@ -99,6 +99,8 @@ text-decoration:none;
 }
 
 
+
+
 /*----------login+join.html----------*/
 
 
@@ -108,7 +110,6 @@ text-decoration:none;
   padding: 400px 0 0;
   margin: auto;
   animation: fadeInUp 1s;
-
 }
 
 .form {
@@ -216,10 +217,9 @@ text-decoration:none;
 }
 
 .ex {
-  background-color: #F6F6F6;
   padding-left: 536.5px;
   padding-right: 536.5px;
-  padding-top: 222px;
+  padding-top: 50px;
   font-weight: bold;
 
   text-shadow: 1px 1px 3px #353535;
@@ -249,8 +249,7 @@ text-decoration:none;
   font-size: 30px;
   position: absolute;
   z-index: 3;
-  margin-top: 25%;
-  padding-bottom: 5%;
+  margin-top: 15%;
 }
 
 .name_{
@@ -276,18 +275,33 @@ text-decoration:none;
 }
 
 /*------여행경비세우기----------*/
-
-.price_form{
-  font-size: 20px;
-  background-color: #FFFFFF;
-  padding: 50px;
-  padding-top: 15%;
-  padding-left: 25%;
-  margin-top: 25%;
+.price{
+  color: white;
+  position: absolute;
+  top:18%;
+  left: 37%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+  z-index: 2;
 }
 
+.price_form{
+  font-size: 25px;
+  position: absolute;
+  background: linear-gradient( to bottom, white, #F2CB61 );
+  z-index:3;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 18%;
+  padding: 20px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
 .price_table tr td input{
-  font-size: 20px;
+  font-size: 25px;
+  
   border: none;
   width: 100%;
 }
@@ -295,6 +309,7 @@ text-decoration:none;
 .tb_title{
   font-size: 40px;
   text-align: center;
+  
 }
 
 td{
@@ -309,16 +324,42 @@ td{
   text-align: right;
 }
 
+
+.button_pr[type="submit"] {
+  font-size: 20px;
+  color: #fff;
+  background: #F2CB61;
+  outline: none;
+  cursor: pointer;
+  padding: 15px;
+  margin: 2em 0;
+  border-radius: 10px;
+  border: 0;
+  position: absolute;
+  right: 0px;
+  }
+
+.button_pr[type="submit"]:hover {
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background: #CEA73D;
+}
+
+
+
 /*---------------공유게시판------------*/
 
 .develop{
   padding-left: 31.4%;
   padding-right: 31.3%;
-  margin-top: 23%;
-  padding-top: 3%;
+  padding-top: 23%;
   background-color: #FFFFFF;
   position: absolute;
   z-index: 3;
+  opacity: 0.5;
 }
 
 .share{
@@ -330,4 +371,140 @@ td{
   text-shadow: 2px 2px 20px #353535;
   animation: fadeInUp 1s;
   z-index: 2;
+}
+
+.developing{
+  color: #353535;
+  position: absolute;
+  top: 70%;
+  font-size: 40px;
+  z-index: 7;
+  left: 40%;
+  animation: pulse 1s 1s infinite alternate;;
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+/*----------마이페이지--------------*/
+.mypage {
+  color: white;
+  position: absolute;
+  top:18%;
+  left: 40.5%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+  z-index: 2;
+}
+
+.form img{
+  border: #353535;
+}
+
+
+.mypage_info {
+  width: 360px;
+  padding: 400px 0 0;
+  margin: auto;
+  animation: fadeInUp 1s;
+  font-size: 20px;
+}
+
+/*---------------회원정보수정--------------*/
+
+
+
+.info {
+  position: relative;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 180px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.info input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.info input[type="submit"] {
+  font-size: .9em;
+  color: #fff;
+  background: #F2CB61;
+  outline: none;
+  cursor: pointer;
+  padding: 0.9em;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 2em 0;
+  letter-spacing: 4px;
+  
+}
+
+.info input[type="submit"]:hover {
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background: #CEA73D;
+}
+
+._info {
+  padding: 200px 0 0;
+  margin: auto;
+  animation: fadeInUp 1s;
+  font-size: 20px;
+}
+
+/*---------여행지추천-----------*/
+.place{
+  color: white;
+  position: absolute;
+  top:18%;
+  left: 40.5%;
+  font-size: 80px;
+  text-shadow: 2px 2px 20px #353535;
+  animation: fadeInUp 1s;
+  z-index: 2;
+}
+
+
+
+.city img{
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+}
+
+.city{
+  margin-left: 26%;
+  margin-top: 20%;
+  margin-bottom: 20px;
 }

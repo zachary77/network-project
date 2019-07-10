@@ -28,21 +28,34 @@
       <ul id="left">
         <li><a href="/intro">홈페이지소개</a> |</li>
         <li><a href="/price" >여행경비세우기</a> |</li>
-        <li><a href="/share" >여행공유게시판</a> |</li>
         <li><a href="/mypage">마이페이지</a></li>
 
       </ul>
-      <ul id="right">
-        <li ><a href="/login">로그인</a> |</li>
-        <li ><a href="/join">회원가입</a></li>
-      </ul>
+      <%
+        if (session.islogin != 'login'){ 
+      %>
+      <script type="text/javascript">
+        alert("로그인을 먼저 해 주십시오.")
+        window.location = "/login"
+      </script>
+      <% } %>
+      <% if(session.islogin == 'login'){ %>
+        <ul id="right">
+          <li><%= cookie.user %>님 안녕하세요.<span style="padding-left:25px;">|</span></li>
+          <li><a href="/logout">로그아웃</a></li>
+        </ul>
+      <%   }%>
     </div>
   </div>
 
   <div class="mypage_info" >
     <div class="form">
         <img src="./img/traveler.png" alt="" style="width: 150px; height: 150px; opacity: 0.7;">
-        <p class="message">(name)</p>
+        <p class="message">
+          <%=
+            cookie.user
+          %>
+        </p>
 
         <a href="/info"><input type="submit" value="회원정보수정"></a>
     </div>

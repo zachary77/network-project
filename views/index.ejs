@@ -1,55 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>TraveL</title>
+    <link rel="short icon" href="./img/travel_icon.ico">
     <link rel="stylesheet" href="./style.css">
     <style media="screen">
-        .Major {font-size: 50px;}
-        .top_sub {font-size: 40px;}
-        .bot_sub{font-size: 28px; animation: fadeInUp 1.5s;}
-        .main{animation: fadeInUp 1.5s;}
-        .a{font-size: 140px;}
-        .b{font-size: 120px;}
-        .c{font-size: 100px;}
-        .d{font-size: 120px;}
-        .e{font-size: 80px;}
-        .f{font-size: 112px;}
-      
-        body{
-          background-color: #FFFFFF;
-          background-image: url('./img/1back.jpg');
-          background-repeat: no-repeat;
-          font-family: 'NanumSquare';
-          margin: 0;
-          padding: 0;
-        }
+      .Major {font-size: 50px;}
+      .top_sub {font-size: 40px;}
+      .bot_sub{font-size: 28px; animation: fadeInUp 1.5s;}
+      .main{animation: fadeInUp 1.5s;}
+      .a{font-size: 140px;}
+      .b{font-size: 120px;}
+      .c{font-size: 100px;}
+      .d{font-size: 120px;}
+      .e{font-size: 80px;}
+      .f{font-size: 112px;}
+    
+      body{
+        background-color: #FFFFFF;
+        background-image: url('./img/1back.jpg');
+        background-repeat: no-repeat;
+        font-family: 'NanumSquare';
+        margin: 0;
+        padding: 0;
+        overflow:hidden;
+      }
       </style>
   </head>
   <body  oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-    <a class="logo" href="http://localhost:8080"><img src="./img/travel__.png" width="200px"></a>
+    <a class="logo" href="/"><img src="./img/travel__.png" width="200px"></a>
     <div class="top_box"><br></div>
     <div class="menu_1">
         <div class="menu">
             <ul id="left">
-                <li><a href="http://localhost:8080/intro">홈페이지소개</a> |</li>
-                <li><a href="price.html" >여행경비세우기</a> |</li>
-                <li><a href="share.html">여행공유게시판</a> |</li>
-                <li><a href="mypage.html">마이페이지</a></li>
+                <li><a href="/intro">홈페이지소개</a> |</li>
+                <li><a href="/price" >여행경비세우기</a> |</li>
+                <li><a href="/mypage">마이페이지</a></li>
 
             </ul>
             <%
             if (session.islogin != 'login'){ 
             %>
             <ul id="right">
-                <li ><a href="http://localhost:8080/login">로그인</a> |</li>
-                <li ><a href="http://localhost:8080/join">회원가입</a></li>
+                <li ><a href="/login">로그인</a> |</li>
+                <li ><a href="/join">회원가입</a></li>
             </ul>
           <% } %>
            <% if(session.islogin == 'login'){ %>
             <ul id="right">
               <li><%= cookie.user %>님 안녕하세요.<span style="padding-left:25px;">|</span></li>
-              <li><a href="http://localhost:8080/logout">로그아웃</a></li>
+              <li><a href="/logout">로그아웃</a></li>
           </ul>
         <%   }%>
         </div>
@@ -59,6 +60,8 @@
       <div class="top_sub"><span class="Major">T</span>ry + <span class="Major">R</span>ecommend + <span class="Major">A</span>ttempt + <span class="Major">V</span>aluable + <span class="Major">E</span>xciting = <span class="Major">L</span>ife</div>
       <div class="main"><span class="a">함</span><span class="b">께</span> <span class="c">가</span><span class="d">는</span> <span class="e">여</span><span class="f">행</span></div>
       <div class="bot_sub">즐거운 여행을 위한 편리한 서비스</div>
+      <br><br>
+      <div class="link"><a href="/place" style="color:white; font-size: 20px; text-decoration: underline;">여행지 보러가기>></a></div>
     </div>
   </body>
 </html>

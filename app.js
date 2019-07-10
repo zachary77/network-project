@@ -52,8 +52,29 @@ app.get('/', (req,res) => {
     res.render('index', {session:req.session, cookie:req.cookies});
 });
 
+app.get('/travel', (req,res) => {
+    res.render('index', {session:req.session, cookie:req.cookies});
+});
+
 app.get('/intro', (req,res) => {
     res.render('intro', {session:req.session, cookie:req.cookies});
+});
+
+app.get('/price', (req,res) => {
+    var sum = 0;
+    res.render('price', {session:req.session, cookie:req.cookies, sum:sum});
+});
+
+app.get('/info', (req,res) => {
+    res.render('info', {session:req.session, cookie:req.cookies});
+});
+
+app.get('/mypage', (req,res) => {
+    res.render('mypage', {session:req.session, cookie:req.cookies});
+});
+
+app.get('/place', (req,res) => {
+    res.render('place', {session:req.session, cookie:req.cookies});
 });
 
 app.get('/login',function(req,res,next){
@@ -102,7 +123,6 @@ app.post('/join', (req,res) => {
 });
 
 app.post('/login', (req,res) => {
-        let body = req.body;
         var sec = db.users.find({ id: `${req.body.id}` , pw: `${req.body.pw}`});
         sec.toArray(function(err,docs){
             if(err){
@@ -118,6 +138,14 @@ app.post('/login', (req,res) => {
                     expires: new Date(Date.now() + 900000),
                     httpOnly: true
                 });
+                res.cookie("user-id", docs[0].id, {
+                    expires: new Date(Date.now() + 900000),
+                    httpOnly: true
+                });
+                res.cookie("user-pw", docs[0].pw, {
+                    expires: new Date(Date.now() + 900000),
+                    httpOnly: true
+                });
                 req.session.islogin = 'login'
 
                 res.send('<script type="text/javascript">alert("로그인에 성공하였습니다.");</script><script type="text/javascript">window.location="http://localhost:8080";</script>');
@@ -125,6 +153,39 @@ app.post('/login', (req,res) => {
                 console.log('사용자 로그인');
             } 
         });
+});
+
+app.post('/price', (req,res) => {
+    var sum = 0;
+    if(req.body.sell1){
+        sum += req.body.sell1 * 1;
+    } if(req.body.sell2){
+        sum += req.body.sell2 * 1;
+    } if(req.body.sell3){
+        sum += req.body.sell3 * 1;
+    } if(req.body.sell4){
+        sum += req.body.sell4 * 1;
+    } if(req.body.sell5){
+        sum += req.body.sell5 * 1;
+    } if(req.body.sell6){
+        sum += req.body.sell6 * 1;
+    } if(req.body.sell7){
+        sum += req.body.sell7 * 1;
+    } if(req.body.sell8){
+        sum += req.body.sell8 * 1;
+    } if(req.body.sell9){
+        sum += req.body.sell9 * 1;
+    }
+    res.render('price', {session:req.session, cookie:req.cookies, sum:sum});
+})
+
+app.post('/info', (req,res) => {
+    if(req.body.pw == req.body.check){
+        db.users.updateOne({username: cookie.username, pw: cookie.pw}, {$set: {username: req.body.username, pw: req.body.pw}});
+        res.send('<script type="text/javascript">alert("회원 정보가 변경되었습니다");</script><script type="text/javascript">window.location="http://localhost:8080/";</script>');
+    }else{
+        res.send('<script type="text/javascript">alert("재입력한 비밀번호가 일치하지 않습니다.");</script><script type="text/javascript">window.location="http://localhost:8080/info";</script>');
+    }
 });
 
 app.get('/logout', (req, res)=> {
