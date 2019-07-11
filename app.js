@@ -77,7 +77,7 @@ app.get('/place', (req,res) => {
     res.render('place', {session:req.session, cookie:req.cookies});
 });
 
-app.get('/login',function(req,res,next){
+app.get('/login',function(req,res){
     let session = req.session;
     res.render("login",{
         session : session
@@ -90,7 +90,7 @@ app.get('/join', (req,res) => {
 
 app.post('/join', (req,res) => {
     if(req.body.pw != req.body.check){
-        res.send('<script type="text/javascript">alert("재입력한 비밀번호가 일치하지 않습니다.");</script><script type="text/javascript">window.location="http://localhost:8080";</script>');
+        res.send('<script type="text/javascript">alert("재입력한 비밀번호가 일치하지 않습니다.");</script><script type="text/javascript">window.location="http://localhost:8080/join";</script>');
         return;
     }
     if(req.body.username && req.body.id && req.body.pw && req.body.check){
@@ -102,7 +102,7 @@ app.post('/join', (req,res) => {
                 return;
             }
             if(docs.length > 0){
-                res.send('<script type="text/javascript">alert("이미 존재하는 아이디입니다.");</script><script type="text/javascript">window.location="http://localhost:8080";</script>');
+                res.send('<script type="text/javascript">alert("이미 존재하는 아이디입니다.");</script><script type="text/javascript">window.location="http://localhost:8080/join";</script>');
             }else {
                 db.users.insertOne({username: `${req.body.username}`, id: `${req.body.id}`, pw: `${req.body.pw}`},
                 function(err,result){
@@ -114,7 +114,7 @@ app.post('/join', (req,res) => {
                         res.send('<script type="text/javascript">alert("회원가입에 성공하였습니다.");</script><script type="text/javascript">window.location="http://localhost:8080";</script>');
                     }else{
                         console.log('사용자 추가 안됨');
-                        res.send('<script type="text/javascript">alert("회원가입에 실패하였습니다.");</script><script type="text/javascript">window.location="http://localhost:8080";</script>');
+                        res.send('<script type="text/javascript">alert("회원가입에 실패하였습니다.");</script><script type="text/javascript">window.location="http://localhost:8080/join";</script>');
                     }
                 });
             }
@@ -131,18 +131,18 @@ app.post('/login', (req,res) => {
                 return;
             }
             if(docs.length <= 0){
-                res.send('<script type="text/javascript">alert("아이디나 비밀번호가 틀렸습니다.");</script><script type="text/javascript">window.location="http://localhost:8080";</script>');
+                res.send('<script type="text/javascript">alert("아이디나 비밀번호가 틀렸습니다.");</script><script type="text/javascript">window.location="http://localhost:8080/login";</script>');
             }else{
                 
                 res.cookie("user", docs[0].username, {    //첫번째 인자는 쿠키 이름, 두번째 인자는 값, 세번째 인자는 옵션(expire : 소멸 시간, httpOnly : 웹 서버에서만 접근 가능하게 설정)
                     expires: new Date(Date.now() + 900000),
                     httpOnly: true
                 });
-                res.cookie("user-id", docs[0].id, {
+                res.cookie("id", docs[0].id, {
                     expires: new Date(Date.now() + 900000),
                     httpOnly: true
                 });
-                res.cookie("user-pw", docs[0].pw, {
+                res.cookie("pw", docs[0].pw, {
                     expires: new Date(Date.now() + 900000),
                     httpOnly: true
                 });
@@ -180,11 +180,16 @@ app.post('/price', (req,res) => {
 })
 
 app.post('/info', (req,res) => {
-    if(req.body.pw == req.body.check){
-        db.users.updateOne({username: cookie.username, pw: cookie.pw}, {$set: {username: req.body.username, pw: req.body.pw}});
-        res.send('<script type="text/javascript">alert("회원 정보가 변경되었습니다");</script><script type="text/javascript">window.location="http://localhost:8080/";</script>');
+    if(req.body.username && req.body.pw && req.body.check){
+        if(req.body.pw == req.body.check){
+            db.users.updateOne({ username: `${req.cookies.user}`, pw: `${req.cookies.pw}` }, {$set: {username: `${req.body.username}`, pw: `${req.body.pw}`}})
+            console.log('사용자 정보 변경 됨');
+            res.send('<script type="text/javascript">window.location="http://localhost:8080/logout";</script>');
+        }else{
+            res.send('<script type="text/javascript">alert("재입력한 비밀번호가 일치하지 않습니다.");</script><script type="text/javascript">window.location="http://localhost:8080/info";</script>');
+        }
     }else{
-        res.send('<script type="text/javascript">alert("재입력한 비밀번호가 일치하지 않습니다.");</script><script type="text/javascript">window.location="http://localhost:8080/info";</script>');
+        res.send('<script type="text/javascript">alert("모든 칸을 다 입력해주세요.");</script><script type="text/javascript">window.location="http://localhost:8080/info";</script>');
     }
 });
 
